@@ -1,0 +1,57 @@
+body {
+  text-align: center;
+  background-image: url("../agogo.png");
+  background-repeat: no-repeat;
+  background-size: 300px;
+  background-color: burlywood;
+  background-position-x: 50px;
+  background-position-y: 20px;
+  padding-top: 60px;
+}
+
+h1 {
+  margin-bottom: 60px;
+}
+
+.rhythm-buttons {
+  margin-bottom: 60px;
+}
+
+.tempo-select {
+  max-width: 700px;
+  margin: 0 auto;
+  margin-bottom: 60px;
+}
+
+a.main-button {
+  display: block;
+  background: green;
+  color: white;
+  border-radius: 100px;
+  width: 100px;
+  height: 100px;
+  margin: 0 auto;
+  text-align: center;
+}
+a.main-button i {
+  font-size: 40px;
+  line-height: 100px;
+  text-align: center;
+}
+a.main-button i.fa-play {
+  margin-left: 5px;
+}
+a.main-button:hover {
+  color: white;
+  background-color: darkgreen;
+  text-decoration: none;
+}
+a.main-button i.fa-play {
+  display: none;
+}
+a.main-button.paused i.fa-pause {
+  display: none;
+}
+a.main-button.paused i.fa-play {
+  display: inline;
+}
