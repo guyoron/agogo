@@ -35,6 +35,40 @@ h1 {
   margin-bottom: 60px;
 }
 
+#graph {
+  margin-bottom: 60px;
+}
+#graph #num {
+  display: inline-block;
+}
+#graph #num .num-inner {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 22px;
+  line-height: 22px;
+  font-family: monospace;
+  font-weight: bold;
+}
+#graph #boxes {
+  display: inline-block;
+  font-size: 0;
+}
+#graph #boxes .box {
+  display: inline-block;
+  background: white;
+  width: 35px;
+  height: 35px;
+  margin-right: 7px;
+  border-radius: 5px;
+}
+#graph #boxes .box:last-child {
+  margin-right: 0;
+}
+#graph #boxes .box.full {
+  background: green;
+}
+
 a.main-button {
   display: block;
   background: green;

@@ -1,24 +1,39 @@
 
 var rhythms = {
-  'aguere': {
+  'aguere1': {
     'time': '8n',
     'pattern': [1, 1, null, null, 1, null, 1, null],
     'defaultBPM' : 120,
+  },
+  'aguere2': {
+    'time': '8n',
+    'pattern': [1, 1, null, null, 1, 1, 1, null],
+    'defaultBPM' : 120,
+  },
+  'avamunha': {
+    'time': '8n',
+    'pattern': [1, null, null, 1, null, null, 1, null, null, null, 1, null, 1, null, null, null],
+    'defaultBPM' : 160,
   },
   'cabula': {
     'time': '8n',
     'pattern': [1, null, 1, 1, null, 1, null, 1, null, 1, null, 1, null, 1, 1, null],
     'defaultBPM' : 140,
   },
+  'ilu': {
+    'time': '8n',
+    'pattern': [1, null, 1, 1, null, 1, 1, null],
+    'defaultBPM' : 160,
+  },
   'vassi': {
     'time': '8t',
     'pattern': [1, null, 1, null, 1, 1, null, 1, null, 1, null, 1],
     'defaultBPM' : 120,
   },
-  'ilu': {
-    'time': '8n',
-    'pattern': [1, null, 1, 1, null, 1, 1, null],
-    'defaultBPM' : 160,
+  'vassilong': {
+    'time': '8t',
+    'pattern': [1, null, 1, null, 1, null, 1, 1, null, 1, null, 1],
+    'defaultBPM' : 120,
   },
 };
 
@@ -81,11 +96,27 @@ $('a.main-button').click(function(e) {
   $(this).toggleClass('paused');
 })
 
+function createGraph(id) {
+  var r = rhythms[id]
+  var num = r.pattern.length
+  var dNum = $('#num .num-inner')
+  var dBoxes = $('#boxes')
+  var box = $('<div class="box"></div>')
+
+  dBoxes.find('.box').remove()
+  dNum.text(num)
+  for (var i=0; i<num; i++){
+    boxClass = r.pattern[i] == null ? 'empty' : 'full';
+    dBoxes.append(box.clone().addClass(boxClass));
+  }
+}
+
 function selectRhythm(id) {
   stopAllSequences();
   rhythms[id].sequence.start(0);
   setBPM(rhythms[id].defaultBPM);
   selectedRhythm = id;
+  createGraph(id)
   console.log('changed to ' + id);
 }
 

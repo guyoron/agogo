@@ -36,6 +36,46 @@ h1 {
   margin-bottom: $margin;
 }
 
+#graph {
+  margin-bottom: $margin;
+
+  #num {
+    display: inline-block;
+
+    .num-inner {
+      position: relative;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 22px;
+      line-height: 22px;
+      font-family: monospace;
+      font-weight: bold;
+    }
+  }
+
+  #boxes {
+    display: inline-block;
+    font-size: 0;
+
+    .box {
+      display: inline-block;
+      background: white;
+      width: 35px;
+      height: 35px;
+      margin-right: 7px;
+      border-radius: 5px;
+
+      &:last-child {
+        margin-right: 0;
+      }
+
+      &.full {
+        background: green;
+      }
+    }
+  }
+}
+
 a.main-button {
   display: block;
   background: green;
