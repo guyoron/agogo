@@ -25,6 +25,11 @@ var rhythms = {
     'pattern': [1, null, 1, 1, null, 1, 1, null],
     'defaultBPM' : 160,
   },
+  'jica': {
+    'time': '8t',
+    'pattern': [1, null, 1, 1, null, null],
+    'defaultBPM' : 160,
+  },
   'vassi': {
     'time': '8t',
     'pattern': [1, null, 1, null, 1, 1, null, 1, null, 1, null, 1],
@@ -39,7 +44,7 @@ var rhythms = {
 
 var selectedRhythm, bpm;
 
-var bellOpts = {
+var bellOpts1 = {
   "frequency" : 200,
 	"harmonicity" : 12,
 	"resonance" : 200,
@@ -50,15 +55,31 @@ var bellOpts = {
 	"volume" : -15
 };
 
-var low  = new Tone.MetalSynth(bellOpts).toMaster();
-var high = new Tone.MetalSynth(bellOpts).toMaster();
+var bellOpts2 = {
+  "frequency" : 200,
+	"harmonicity" : 12,
+	"resonance" : 800,
+	"modulationIndex" : 20,
+	"envelope" : {
+		"decay" : 0.4,
+	},
+	"volume" : -15
+};
+
+// var low  = new Tone.MetalSynth(bellOpts1).toMaster();
+// var high = new Tone.MetalSynth(bellOpts1).toMaster();
+
+var low  = new Tone.Player('./sounds/low.wav').toMaster();
+var high = new Tone.Player('./sounds/high.wav').toMaster();
 
 var bellCallback = function(time, bell) {
   if (bell == 1) {
-		low.triggerAttack(time);
+		// low.triggerAttack(time);
+    low.restart()
   }
   else {
-    high.triggerAttack(time);
+    // high.triggerAttack(time);
+    high.restart()
   }
 }
 
