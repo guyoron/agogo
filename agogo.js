@@ -8,7 +8,7 @@ var rhythms = {
   'cabula': {
     'time': '8n',
     'pattern': [1, null, 1, 1, null, 1, null, 1, null, 1, null, 1, null, 1, 1, null],
-    'defaultBPM' : 120,
+    'defaultBPM' : 140,
   },
   'vassi': {
     'time': '8t',
@@ -18,7 +18,7 @@ var rhythms = {
   'ilu': {
     'time': '8n',
     'pattern': [1, null, 1, 1, null, 1, 1, null],
-    'defaultBPM' : 120,
+    'defaultBPM' : 160,
   },
 };
 
