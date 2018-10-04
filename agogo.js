@@ -67,7 +67,16 @@ $('#tempo').change(function() {
 
 $('a.main-button').click(function(e) {
   Tone.Transport.toggle();
-  $(this).toggleClass('paused')
+
+  if ($(this).hasClass('paused')) {
+    // We're pressing play
+    disableControls();
+  }
+  else {
+    enableControls();
+  }
+
+  $(this).toggleClass('paused');
 })
 
 function selectRhythm(id) {
@@ -90,4 +99,14 @@ function stopAllSequences() {
       rhythms[rhythm].sequence.stop("+0");
     }
   }
+}
+
+function disableControls() {
+  $('.rhythm-buttons .btn').addClass('disabled');
+  $('#tempo').prop('disabled',true);
+}
+
+function enableControls() {
+  $('.rhythm-buttons .btn').removeClass('disabled');
+  $('#tempo').prop('disabled',false);
 }
