@@ -27,8 +27,8 @@ var selectedRhythm, bpm;
 var bellOpts = {
   "frequency" : 200,
 	"harmonicity" : 12,
-	"resonance" : 400,
-	"modulationIndex" : 20,
+	"resonance" : 200,
+	"modulationIndex" : 10,
 	"envelope" : {
 		"decay" : 0.3,
 	},
