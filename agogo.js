@@ -57,6 +57,8 @@ var rhythmButtons = $('.rhythm-buttons input');
 
 selectRhythm(rhythmButtons.filter(':checked').attr('id'));
 
+StartAudioContext(Tone.context)
+
 rhythmButtons.change(function() {
   selectRhythm($(this).attr('id'));
 })
