@@ -1,3 +1,11 @@
+class Agogo {
+  constructor(settings) {
+    this.low = settings.low
+    this.high = settings.high
+    this.playLow = settings.playLow
+    this.playHigh = settings.playHigh
+  }
+}
 
 var rhythms = {
   'aguere1': {
@@ -42,9 +50,20 @@ var rhythms = {
   },
 };
 
-var selectedRhythm, bpm;
+var selectedRhythm, bpm, agogo;
 
-var bellOpts1 = {
+AgogoNatural = new Agogo({
+  'low' : new Tone.Player('./sounds/low.wav').toMaster(),
+  'high' : new Tone.Player('./sounds/high.wav').toMaster(),
+  'playLow' : function() {
+    this.low.restart()
+  },
+  'playHigh' : function() {
+    this.high.restart()
+  },
+});
+
+var synthOpts1 = {
   "frequency" : 200,
 	"harmonicity" : 12,
 	"resonance" : 200,
@@ -55,7 +74,18 @@ var bellOpts1 = {
 	"volume" : -15
 };
 
-var bellOpts2 = {
+AgogoSynth1 = new Agogo({
+  'low' : new Tone.MetalSynth(synthOpts1).toMaster(),
+  'high' : new Tone.MetalSynth(synthOpts1).toMaster(),
+  'playLow' : function() {
+    this.low.triggerAttack()
+  },
+  'playHigh' : function() {
+    this.high.triggerAttack()
+  },
+})
+
+var synthOpts2 = {
   "frequency" : 200,
 	"harmonicity" : 12,
 	"resonance" : 800,
@@ -66,26 +96,31 @@ var bellOpts2 = {
 	"volume" : -15
 };
 
-// var low  = new Tone.MetalSynth(bellOpts1).toMaster();
-// var high = new Tone.MetalSynth(bellOpts1).toMaster();
+AgogoSynth2 = new Agogo({
+  'low' : new Tone.MetalSynth(synthOpts2).toMaster(),
+  'high' : new Tone.MetalSynth(synthOpts2).toMaster(),
+  'playLow' : function() {
+    this.low.triggerAttack()
+  },
+  'playHigh' : function() {
+    this.high.triggerAttack()
+  },
+})
 
-var low  = new Tone.Player('./sounds/low.wav').toMaster();
-var high = new Tone.Player('./sounds/high.wav').toMaster();
+agogo = agogoNatural
 
-var bellCallback = function(time, bell) {
+var playAgogo = function(time, bell) {
   if (bell == 1) {
-		// low.triggerAttack(time);
-    low.restart()
+		agogo.playLow()
   }
   else {
-    // high.triggerAttack(time);
-    high.restart()
+    agogo.playHigh()
   }
 }
 
 for (var rhythm in rhythms) {
   if (rhythms.hasOwnProperty(rhythm)) {
-    rhythms[rhythm].sequence = new Tone.Sequence(bellCallback, rhythms[rhythm].pattern, rhythms[rhythm].time);
+    rhythms[rhythm].sequence = new Tone.Sequence(playAgogo, rhythms[rhythm].pattern, rhythms[rhythm].time);
   }
 }
 
