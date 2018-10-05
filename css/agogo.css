@@ -85,35 +85,37 @@ h1 {
   background: green;
 }
 
-a.main-button {
+a.play {
   display: block;
+  position: relative;
   background: green;
-  color: white;
   border-radius: 100px;
   width: 100px;
   height: 100px;
   margin: 0 auto;
   text-align: center;
+  border-collapse: separate;
+  transition: all 0.2s;
 }
-a.main-button i {
-  font-size: 40px;
-  line-height: 100px;
-  text-align: center;
+a.play div {
+  box-sizing: border-box;
+  height: 54px;
+  position: absolute;
+  left: 37px;
+  top: 20px;
+  border-color: transparent transparent transparent #efefef;
+  transition: 100ms all ease;
+  will-change: border-width;
+  cursor: pointer;
+  border-style: solid;
+  border-width: 27px 0 27px 40px;
 }
-a.main-button i.fa-play {
-  margin-left: 5px;
+a.play.pause div {
+  border-style: double;
+  border-width: 0px 0 0px 40px;
+  left: 30px;
+  top: 22px;
 }
-a.main-button:hover {
-  color: white;
+a.play:hover {
   background-color: darkgreen;
-  text-decoration: none;
-}
-a.main-button i.fa-play {
-  display: none;
-}
-a.main-button.paused i.fa-pause {
-  display: none;
-}
-a.main-button.paused i.fa-play {
-  display: inline;
 }

@@ -138,18 +138,19 @@ $('#tempo').change(function() {
   setBPM($(this).val());
 })
 
-$('a.main-button').click(function(e) {
+$('a.play').click(function(e) {
   Tone.Transport.toggle();
 
-  if ($(this).hasClass('paused')) {
-    // We're pressing play
-    disableControls();
-  }
-  else {
+  if ($(this).hasClass('pause')) {
     enableControls();
   }
+  else {
+    // We're pressing play
+    disableControls();
 
-  $(this).toggleClass('paused');
+  }
+
+  $(this).toggleClass('pause');
 })
 
 formatControls()
