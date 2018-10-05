@@ -28,6 +28,10 @@ h1 {
 
 .rhythm-buttons {
   margin-bottom: $margin;
+
+  label.btn {
+    margin-bottom: 5px;
+  }
 }
 
 .tempo-select {
@@ -46,10 +50,15 @@ h1 {
       position: relative;
       top: 50%;
       transform: translateY(-50%);
-      font-size: 22px;
-      line-height: 22px;
+      font-size: 15px;
+      line-height: 15px;
       font-family: monospace;
       font-weight: bold;
+
+      @media (min-width: 768px) {
+        font-size: 22px;
+        line-height: 22px;
+      }
     }
   }
 
@@ -60,10 +69,16 @@ h1 {
     .box {
       display: inline-block;
       background: white;
-      width: 35px;
-      height: 35px;
-      margin-right: 7px;
+      width: 23px;
+      height: 23px;
+      margin: 5px 5px 0 0;
       border-radius: 5px;
+
+      @media (min-width: 768px) {
+        width: 35px;
+        height: 35px;
+        margin-right: 7px;
+      }
 
       &:last-child {
         margin-right: 0;

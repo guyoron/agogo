@@ -152,6 +152,9 @@ $('a.main-button').click(function(e) {
   $(this).toggleClass('paused');
 })
 
+formatControls()
+$(window).resize(formatControls)
+
 function createGraph(id) {
   var r = rhythms[id]
   var num = r.pattern.length
@@ -198,4 +201,13 @@ function disableControls() {
 function enableControls() {
   $('.rhythm-buttons .btn').removeClass('disabled');
   $('#tempo').prop('disabled',false);
+}
+
+function formatControls() {
+  if ($(window).width() > 768) {
+    $('.rhythm-buttons').addClass('btn-group')
+  }
+  else {
+    $('.rhythm-buttons').removeClass('btn-group')
+  }
 }

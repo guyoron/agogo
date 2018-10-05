@@ -28,6 +28,9 @@ h1 {
 .rhythm-buttons {
   margin-bottom: 60px;
 }
+.rhythm-buttons label.btn {
+  margin-bottom: 5px;
+}
 
 .tempo-select {
   max-width: 700px;
@@ -45,10 +48,16 @@ h1 {
   position: relative;
   top: 50%;
   transform: translateY(-50%);
-  font-size: 22px;
-  line-height: 22px;
+  font-size: 15px;
+  line-height: 15px;
   font-family: monospace;
   font-weight: bold;
+}
+@media (min-width: 768px) {
+  #graph #num .num-inner {
+    font-size: 22px;
+    line-height: 22px;
+  }
 }
 #graph #boxes {
   display: inline-block;
@@ -57,10 +66,17 @@ h1 {
 #graph #boxes .box {
   display: inline-block;
   background: white;
-  width: 35px;
-  height: 35px;
-  margin-right: 7px;
+  width: 23px;
+  height: 23px;
+  margin: 5px 5px 0 0;
   border-radius: 5px;
+}
+@media (min-width: 768px) {
+  #graph #boxes .box {
+    width: 35px;
+    height: 35px;
+    margin-right: 7px;
+  }
 }
 #graph #boxes .box:last-child {
   margin-right: 0;
