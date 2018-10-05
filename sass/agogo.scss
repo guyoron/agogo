@@ -3,7 +3,11 @@ $c-primary: green;
 $c-secondary: white;
 $c-background: burlywood;
 
-$margin: 60px;
+$break-sm: 500px;
+$break-md: 768px;
+
+$margin-sm: 40px;
+$margin-lg: 60px;
 
 body {
   text-align: center;
@@ -13,10 +17,11 @@ body {
   background-size: 100px;
   background-position-x: 10px;
   background-position-y: 10px;
-  padding-top: $margin;
+  padding-top: $margin-sm;
 
   @media (min-width: 500px) {
     background-size: 160px;
+    padding-top: $margin-lg;
   }
 
   @media (min-width: 980px) {
@@ -26,12 +31,28 @@ body {
   }
 }
 
+h1,
+#control-rhythm,
+#tempo-select,
+#graph {
+  margin-bottom: $margin-sm;
+
+  @media (min-width: $break-sm) {
+    margin-bottom: $margin-lg;
+  }
+}
+
 h1 {
-  margin-bottom: $margin;
+  margin-right: auto;
+  margin-left: auto;
+
+  @media (max-width: $break-sm) {
+    font-size: 1.5rem;
+    max-width: 200px;
+  }
 }
 
 #control-rhythm {
-  margin-bottom: $margin;
 
   label.btn {
     margin-bottom: 5px;
@@ -40,8 +61,8 @@ h1 {
 
 #tempo-select {
   max-width: 700px;
-  margin: 0 auto;
-  margin-bottom: $margin;
+  margin-right: auto;
+  margin-left: auto;
 
   #display-tempo {
     font-size: 18px;
@@ -52,7 +73,6 @@ h1 {
 }
 
 #graph {
-  margin-bottom: $margin;
 
   #num {
     display: inline-block;
@@ -66,7 +86,7 @@ h1 {
       font-family: monospace;
       font-weight: bold;
 
-      @media (min-width: 768px) {
+      @media (min-width: $break-md) {
         font-size: 22px;
         line-height: 22px;
       }
@@ -85,7 +105,7 @@ h1 {
       margin: 5px 5px 0 0;
       border-radius: 5px;
 
-      @media (min-width: 768px) {
+      @media (min-width: $break-md) {
         width: 35px;
         height: 35px;
         margin-right: 7px;

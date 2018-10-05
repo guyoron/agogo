@@ -6,11 +6,12 @@ body {
   background-size: 100px;
   background-position-x: 10px;
   background-position-y: 10px;
-  padding-top: 60px;
+  padding-top: 40px;
 }
 @media (min-width: 500px) {
   body {
     background-size: 160px;
+    padding-top: 60px;
   }
 }
 @media (min-width: 980px) {
@@ -21,21 +22,40 @@ body {
   }
 }
 
-h1 {
-  margin-bottom: 60px;
+h1,
+#control-rhythm,
+#tempo-select,
+#graph {
+  margin-bottom: 40px;
+}
+@media (min-width: 500px) {
+  h1,
+  #control-rhythm,
+  #tempo-select,
+  #graph {
+    margin-bottom: 60px;
+  }
 }
 
-#control-rhythm {
-  margin-bottom: 60px;
+h1 {
+  margin-right: auto;
+  margin-left: auto;
 }
+@media (max-width: 500px) {
+  h1 {
+    font-size: 1.5rem;
+    max-width: 200px;
+  }
+}
+
 #control-rhythm label.btn {
   margin-bottom: 5px;
 }
 
 #tempo-select {
   max-width: 700px;
-  margin: 0 auto;
-  margin-bottom: 60px;
+  margin-right: auto;
+  margin-left: auto;
 }
 #tempo-select #display-tempo {
   font-size: 18px;
@@ -44,9 +64,6 @@ h1 {
   font-weight: bold;
 }
 
-#graph {
-  margin-bottom: 60px;
-}
 #graph #num {
   display: inline-block;
 }
