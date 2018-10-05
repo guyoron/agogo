@@ -26,7 +26,7 @@
 
       <h1 class="mx-center">Agogô do Candomblé</h1>
 
-      <div class="btn-group-toggle rhythm-buttons mx-center" data-toggle="buttons">
+      <div id="control-rhythm" class="btn-group-toggle mx-center" data-toggle="buttons">
         <label class="btn btn-secondary">
           <input type="radio" name="options" id="aguere1" autocomplete="off">Aguere
         </label>
@@ -58,12 +58,12 @@
         <div id="boxes"></div>
       </div>
 
-      <div class="tempo-select mx-center">
-        <div class="tempo-display"></div>
-        <input type="range" class="custom-range" min="60" max="240" step="5" id="tempo">
+      <div id="tempo-select" class="mx-center">
+        <div id="display-tempo"></div>
+        <input id="control-tempo" type="range" class="custom-range" min="60" max="240" step="5">
       </div>
 
-      <a href="#" class="play"><div></div></a>
+      <a href="#" id="control-play" data-action="play"><div class="icon"></div></a>
     </div>
 
 

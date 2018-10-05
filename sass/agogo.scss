@@ -30,7 +30,7 @@ h1 {
   margin-bottom: $margin;
 }
 
-.rhythm-buttons {
+#control-rhythm {
   margin-bottom: $margin;
 
   label.btn {
@@ -38,10 +38,17 @@ h1 {
   }
 }
 
-.tempo-select {
+#tempo-select {
   max-width: 700px;
   margin: 0 auto;
   margin-bottom: $margin;
+
+  #display-tempo {
+    font-size: 18px;
+    line-height: 18px;
+    font-family: monospace;
+    font-weight: bold;
+  }
 }
 
 #graph {
@@ -95,7 +102,7 @@ h1 {
   }
 }
 
-a.play {
+a#control-play {
   display: block;
   position: relative;
   background: $c-primary;
@@ -105,35 +112,53 @@ a.play {
   margin: 0 auto;
   text-align: center;
   border-collapse: separate;
-  transition: all 0.2s;
+  transition: all 300ms ease;
 
-  div {
+  .icon {
     box-sizing: border-box;
     height: 54px;
     position: absolute;
     left: 37px;
-    top: 20px;
+    top: 22px;
 
     border-color: transparent transparent transparent #efefef;
-    transition: 100ms all ease;
+    transition: 300ms all ease;
     will-change: border-width;
     cursor: pointer;
 
     // play state
     border-style: solid;
     border-width: 27px 0 27px 40px;
+
+    &::before {
+      content: '';
+      background: rgba(0, 255, 0, 0.2);
+      width: 122px;
+      height: 122px;
+      display: block;
+      z-index: -1;
+      border-radius: 150px;
+      position: relative;
+      top: -33px;
+      left: -81px;
+      opacity: 0;
+      transition: all 300ms ease;
+    }
   }
 
   // paused state
-  &.pause div {
+  &[data-action="pause"] .icon {
     border-style: double;
     border-width: 0px 0 0px 40px;
     left: 30px;
     top: 22px;
+
+    &::before {
+      opacity: 1;
+    }
   }
 
   &:hover {
     background-color: darkgreen;
   }
-
 }

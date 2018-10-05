@@ -7,6 +7,17 @@ class Agogo {
   }
 }
 
+var selectedRhythm, bpm, agogo;
+
+var controlPlay  = $('a#control-play');
+var controlTempo = $('#control-tempo');
+var controlRhythm = $('#control-rhythm');
+var controlRhythmInputs = $('#control-rhythm input')
+
+var displayTempo = $('#display-tempo');
+
+var boxes = $('#boxes')
+
 var rhythms = {
   'aguere1': {
     'time': '8n',
@@ -50,8 +61,14 @@ var rhythms = {
   },
 };
 
-var selectedRhythm, bpm, agogo;
+// Create Tone sequences for each rhythm based on its pattern
+for (var rhythm in rhythms) {
+  if (rhythms.hasOwnProperty(rhythm)) {
+    rhythms[rhythm].sequence = new Tone.Sequence(playAgogo, rhythms[rhythm].pattern, rhythms[rhythm].time);
+  }
+}
 
+// Set up agogos
 agogoNatural = new Agogo({
   'low' : new Tone.Player('./sounds/low.wav').toMaster(),
   'high' : new Tone.Player('./sounds/high.wav').toMaster(),
@@ -107,108 +124,110 @@ agogoSynth2 = new Agogo({
   },
 })
 
-agogo = agogoNatural
+// Initialization
+agogo = agogoNatural;
+selectRhythm(controlRhythmInputs.filter(':checked').attr('id'));
+formatControls();
+StartAudioContext(Tone.context);
 
-var playAgogo = function(time, bell) {
+// Bind to rhythm control
+controlRhythmInputs.change(function() {
+  selectRhythm($(this).attr('id'));
+})
+
+// Bind to tempo control
+controlTempo.on('input', function() {
+  setBPM($(this).val());
+})
+
+// Bind to play button
+controlPlay.click(function(e) {
+  togglePlay($(this).attr('data-action'));
+})
+
+// Bind to window resize
+$(window).resize(formatControls)
+
+// Toggle the main playing
+function togglePlay(action) {
+  Tone.Transport.toggle();
+  if (action == 'play') {
+    disableControls();
+    controlPlay.attr('data-action', 'pause');
+  }
+  else if (action == 'pause') {
+    enableControls();
+    controlPlay.attr('data-action', 'play');
+  }
+}
+
+// Callback for sequence play events and triggers the agogo
+function playAgogo(time, bell) {
   if (bell == 1) {
 		agogo.playLow()
   }
-  else {
+  else if (bell == 2) {
     agogo.playHigh()
   }
 }
 
-for (var rhythm in rhythms) {
-  if (rhythms.hasOwnProperty(rhythm)) {
-    rhythms[rhythm].sequence = new Tone.Sequence(playAgogo, rhythms[rhythm].pattern, rhythms[rhythm].time);
-  }
-}
-
-var rhythmButtons = $('.rhythm-buttons input');
-
-selectRhythm(rhythmButtons.filter(':checked').attr('id'));
-
-StartAudioContext(Tone.context)
-
-rhythmButtons.change(function() {
-  selectRhythm($(this).attr('id'));
-})
-
-$('#tempo').change(function() {
-  setBPM($(this).val());
-})
-
-$('a.play').click(function(e) {
-  Tone.Transport.toggle();
-
-  if ($(this).hasClass('pause')) {
-    enableControls();
-  }
-  else {
-    // We're pressing play
-    disableControls();
-
-  }
-
-  $(this).toggleClass('pause');
-})
-
-formatControls()
-$(window).resize(formatControls)
-
+// Create or refresh the box graph
 function createGraph(id) {
   var r = rhythms[id]
   var num = r.pattern.length
   var dNum = $('#num .num-inner')
-  var dBoxes = $('#boxes')
   var box = $('<div class="box"></div>')
 
-  dBoxes.find('.box').remove()
+  boxes.find('.box').remove()
   dNum.text(num)
   for (var i=0; i<num; i++){
     boxClass = r.pattern[i] == null ? 'empty' : 'full';
-    dBoxes.append(box.clone().addClass(boxClass));
+    boxes.append(box.clone().addClass(boxClass));
   }
 }
 
+// Switch the currently selected rhythm
 function selectRhythm(id) {
-  stopAllSequences();
-  rhythms[id].sequence.start(0);
-  setBPM(rhythms[id].defaultBPM);
-  selectedRhythm = id;
-  createGraph(id)
-  console.log('changed to ' + id);
-}
 
-function setBPM(val) {
-  Tone.Transport.bpm.value = val;
-  $('#tempo').val(val)
-  $('.tempo-display').text(val + ' BPM');
-}
-
-function stopAllSequences() {
+  // Stop all sequences on the transport
   for (var rhythm in rhythms) {
     if (rhythms.hasOwnProperty(rhythm)) {
       rhythms[rhythm].sequence.stop("+0");
     }
   }
+
+  // Queue the sequence for the selected rhythm
+  rhythms[id].sequence.start(0);
+
+  setBPM(rhythms[id].defaultBPM);
+
+  selectedRhythm = id;
+
+  createGraph(id);
+}
+
+// Set the current BPM
+function setBPM(val) {
+  Tone.Transport.bpm.value = val;
+  controlTempo.val(val)
+  displayTempo.text(val + ' BPM');
 }
 
 function disableControls() {
-  $('.rhythm-buttons .btn').addClass('disabled');
-  $('#tempo').prop('disabled',true);
+  controlRhythm.find('.btn').addClass('disabled');
+  controlTempo.prop('disabled',true);
 }
 
 function enableControls() {
-  $('.rhythm-buttons .btn').removeClass('disabled');
-  $('#tempo').prop('disabled',false);
+  controlRhythm.find('.btn').removeClass('disabled');
+  controlTempo.prop('disabled',false);
 }
 
 function formatControls() {
   if ($(window).width() > 768) {
-    $('.rhythm-buttons').addClass('btn-group')
+    controlRhythm.addClass('btn-group')
   }
   else {
-    $('.rhythm-buttons').removeClass('btn-group')
+    controlRhythm.removeClass('btn-group')
   }
 }
