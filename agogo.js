@@ -52,7 +52,7 @@ var rhythms = {
 
 var selectedRhythm, bpm, agogo;
 
-AgogoNatural = new Agogo({
+agogoNatural = new Agogo({
   'low' : new Tone.Player('./sounds/low.wav').toMaster(),
   'high' : new Tone.Player('./sounds/high.wav').toMaster(),
   'playLow' : function() {
@@ -74,7 +74,7 @@ var synthOpts1 = {
 	"volume" : -15
 };
 
-AgogoSynth1 = new Agogo({
+agogoSynth1 = new Agogo({
   'low' : new Tone.MetalSynth(synthOpts1).toMaster(),
   'high' : new Tone.MetalSynth(synthOpts1).toMaster(),
   'playLow' : function() {
@@ -96,7 +96,7 @@ var synthOpts2 = {
 	"volume" : -15
 };
 
-AgogoSynth2 = new Agogo({
+agogoSynth2 = new Agogo({
   'low' : new Tone.MetalSynth(synthOpts2).toMaster(),
   'high' : new Tone.MetalSynth(synthOpts2).toMaster(),
   'playLow' : function() {
