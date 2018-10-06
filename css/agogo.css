@@ -104,8 +104,11 @@ h1 {
 #graph #boxes .box:last-child {
   margin-right: 0;
 }
-#graph #boxes .box.full {
+#graph #boxes .box.low {
   background: green;
+}
+#graph #boxes .box.high {
+  background: #00b300;
 }
 
 a#control-play {

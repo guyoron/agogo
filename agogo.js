@@ -49,6 +49,16 @@ var rhythms = {
     'pattern': [1, null, 1, 1, null, null],
     'defaultBPM' : 160,
   },
+  'opanije': {
+    'time': '8n',
+    'pattern': [1, 1, 1, null, 1, 1, 1, null, 1, 1, null, 2, null, 2, 2, null],
+    'defaultBPM' : 160,
+  },
+  'tonibobe': {
+    'time': '8n',
+    'pattern': [1, null, 2, 2, 2, null, 2, null, 2, null, 2, null, 1, null, 1, null],
+    'defaultBPM' : 160,
+  },
   'vassi': {
     'time': '8t',
     'pattern': [1, null, 1, null, 1, 1, null, 1, null, 1, null, 1],
@@ -181,7 +191,13 @@ function createGraph(id) {
   boxes.find('.box').remove()
   dNum.text(num)
   for (var i=0; i<num; i++){
-    boxClass = r.pattern[i] == null ? 'empty' : 'full';
+    boxClass = '';
+    if (r.pattern[i] == 1) {
+      boxClass = 'low';
+    }
+    else if (r.pattern[i] == 2){
+      boxClass = 'high';
+    }
     boxes.append(box.clone().addClass(boxClass));
   }
 }
@@ -225,9 +241,9 @@ function enableControls() {
 
 function formatControls() {
   if ($(window).width() > 768) {
-    controlRhythm.addClass('btn-group')
+    controlRhythm.find('.rhythm-row').addClass('btn-group')
   }
   else {
-    controlRhythm.removeClass('btn-group')
+    controlRhythm.find('.rhythm-row').removeClass('btn-group')
   }
 }

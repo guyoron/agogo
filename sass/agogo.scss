@@ -115,8 +115,11 @@ h1 {
         margin-right: 0;
       }
 
-      &.full {
+      &.low {
         background: $c-primary;
+      }
+      &.high {
+        background: lighten($c-primary, 10%);
       }
     }
   }
