@@ -82,11 +82,11 @@ for (var rhythm in rhythms) {
 agogoNatural = new Agogo({
   'low' : new Tone.Player('./sounds/low.wav').toMaster(),
   'high' : new Tone.Player('./sounds/high.wav').toMaster(),
-  'playLow' : function() {
-    this.low.restart()
+  'playLow' : function(time) {
+    this.low.restart(time)
   },
-  'playHigh' : function() {
-    this.high.restart()
+  'playHigh' : function(time) {
+    this.high.restart(time)
   },
 });
 
@@ -104,11 +104,11 @@ var synthOpts1 = {
 agogoSynth1 = new Agogo({
   'low' : new Tone.MetalSynth(synthOpts1).toMaster(),
   'high' : new Tone.MetalSynth(synthOpts1).toMaster(),
-  'playLow' : function() {
-    this.low.triggerAttack()
+  'playLow' : function(time) {
+    this.low.triggerAttack(time)
   },
-  'playHigh' : function() {
-    this.high.triggerAttack()
+  'playHigh' : function(time) {
+    this.high.triggerAttack(time)
   },
 })
 
@@ -126,11 +126,11 @@ var synthOpts2 = {
 agogoSynth2 = new Agogo({
   'low' : new Tone.MetalSynth(synthOpts2).toMaster(),
   'high' : new Tone.MetalSynth(synthOpts2).toMaster(),
-  'playLow' : function() {
-    this.low.triggerAttack()
+  'playLow' : function(time) {
+    this.low.triggerAttack(time)
   },
-  'playHigh' : function() {
-    this.high.triggerAttack()
+  'playHigh' : function(time) {
+    this.high.triggerAttack(time)
   },
 })
 
@@ -186,10 +186,10 @@ function togglePlay(action, time) {
 // Callback for sequence play events and triggers the agogo
 function playAgogo(time, bell) {
   if (bell == 1) {
-		agogo.playLow()
+		agogo.playLow(time)
   }
   else if (bell == 2) {
-    agogo.playHigh()
+    agogo.playHigh(time)
   }
 }
 
@@ -210,7 +210,7 @@ function createGraph(id) {
     else if (r.pattern[i] == 2){
       boxClass = 'high';
     }
-    boxes.append(box.clone().addClass(boxClass));
+    boxes.append(box.clone().addClass(boxClass).addClass('box-'+i));
   }
 }
 
