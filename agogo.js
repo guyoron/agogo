@@ -136,13 +136,13 @@ agogoSynth2 = new Agogo({
 
 // Initialization
 agogo = agogoNatural;
-selectRhythm(controlRhythmInputs.filter(':checked').attr('id'));
+selectRhythm(controlRhythmInputs.filter(':checked').attr('id'), false);
 formatControls();
 StartAudioContext(Tone.context);
 
 // Bind to rhythm control
 controlRhythmInputs.change(function() {
-  selectRhythm($(this).attr('id'));
+  selectRhythm($(this).attr('id'), true);
 })
 
 // Bind to tempo control
@@ -206,7 +206,7 @@ function createGraph(id) {
 }
 
 // Switch the currently selected rhythm
-function selectRhythm(id) {
+function selectRhythm(id, track) {
 
   // Stop all sequences on the transport
   for (var rhythm in rhythms) {
@@ -223,6 +223,13 @@ function selectRhythm(id) {
   selectedRhythm = id;
 
   createGraph(id);
+
+  if (track) {
+    gtag('event', 'select', {
+      'event_category': 'rhythm',
+      'event_label': selectedRhythm
+    });
+  }
 }
 
 // Called on every movement while range input it dragged
