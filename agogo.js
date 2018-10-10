@@ -7,7 +7,7 @@ class Agogo {
   }
 }
 
-var selectedRhythm, bpm, agogo;
+var selectedRhythm, agogo;
 
 var controlPlay  = $('a#control-play');
 var controlTempo = $('#control-tempo');
@@ -147,8 +147,11 @@ controlRhythmInputs.change(function() {
 
 // Bind to tempo control
 controlTempo.on('input', function() {
-  setBPM($(this).val());
-})
+  updateBPM($(this).val());
+});
+controlTempo.on('change', function() {
+  changeBPM($(this).val());
+});
 
 // Bind to play button
 controlPlay.click(function(e) {
@@ -222,11 +225,27 @@ function selectRhythm(id) {
   createGraph(id);
 }
 
-// Set the current BPM
+// Called on every movement while range input it dragged
+function updateBPM(val) {
+  displayTempo.text(val + ' BPM');
+}
+
+// Called when range input it set
+function changeBPM(val) {
+  setBPM(val);
+  gtag('event', 'set', {
+    'event_category': 'controlTempo',
+    'event_label': selectedRhythm,
+    'value': val
+  });
+}
+
+// Sets the actual bpm for the sound transport
 function setBPM(val) {
   Tone.Transport.bpm.value = val;
-  controlTempo.val(val)
-  displayTempo.text(val + ' BPM');
+  // Make sure the input value matches, in case this was set automatically for rhythm
+  controlTempo.val(val);
+  updateBPM(val);
 }
 
 function disableControls() {
