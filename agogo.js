@@ -32,7 +32,7 @@ var rhythms = {
   'avamunha': {
     'time': '8n',
     'pattern': [1, null, null, 1, null, null, 1, null, null, null, 1, null, 1, null, null, null],
-    'defaultBPM' : 160,
+    'defaultBPM' : 170,
   },
   'cabula': {
     'time': '8n',
@@ -52,12 +52,12 @@ var rhythms = {
   'opanije': {
     'time': '8n',
     'pattern': [1, 1, 1, null, 1, 1, 1, null, 1, 1, null, 2, null, 2, 2, null],
-    'defaultBPM' : 160,
+    'defaultBPM' : 150,
   },
   'tonibobe': {
     'time': '8n',
     'pattern': [1, null, 2, 2, 2, null, 2, null, 2, null, 2, null, 1, null, 1, null],
-    'defaultBPM' : 160,
+    'defaultBPM' : 210,
   },
   'vassi': {
     'time': '8t',
