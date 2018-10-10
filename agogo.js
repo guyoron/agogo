@@ -155,22 +155,31 @@ controlTempo.on('change', function() {
 
 // Bind to play button
 controlPlay.click(function(e) {
-  togglePlay($(this).attr('data-action'));
+  togglePlay($(this).attr('data-action'), e.timeStamp);
 })
 
 // Bind to window resize
 $(window).resize(formatControls)
 
 // Toggle the main playing
-function togglePlay(action) {
+function togglePlay(action, time) {
   Tone.Transport.toggle();
   if (action == 'play') {
     disableControls();
     controlPlay.attr('data-action', 'pause');
+    playTime = time;
   }
   else if (action == 'pause') {
     enableControls();
     controlPlay.attr('data-action', 'play');
+    var elapsedTime = (time-playTime)/1000;
+    elapsedTime = elapsedTime.toFixed(1);
+
+    gtag('event', 'endPlay', {
+      'event_category': 'controlPlay',
+      'event_label': selectedRhythm,
+      'value': elapsedTime
+    });
   }
 }
 
@@ -226,7 +235,7 @@ function selectRhythm(id, track) {
 
   if (track) {
     gtag('event', 'select', {
-      'event_category': 'rhythm',
+      'event_category': 'controlRhythm',
       'event_label': selectedRhythm
     });
   }
