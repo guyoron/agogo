@@ -21,12 +21,12 @@ var boxes = $('#boxes')
 var rhythms = {
   'aguere1': {
     'time': '8n',
-    'pattern': [1, 1, null, null, 1, null, 1, null],
+    'pattern': [1, 1, null, null, 1, 1, 1, null],
     'defaultBPM' : 120,
   },
   'aguere2': {
     'time': '8n',
-    'pattern': [1, 1, null, null, 1, 1, 1, null],
+    'pattern': [1, 1, null, null, 1, null, 1, null],
     'defaultBPM' : 120,
   },
   'avamunha': {
