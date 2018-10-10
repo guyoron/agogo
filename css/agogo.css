@@ -7,6 +7,8 @@ body {
   background-position-x: 10px;
   background-position-y: 10px;
   padding-top: 40px;
+  transition: background-size 0.2s;
+  will-change: background-size;
 }
 @media (min-width: 500px) {
   body {
