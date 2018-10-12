@@ -47,7 +47,7 @@ var rhythms = {
   'jica': {
     'time': '8t',
     'pattern': [1, null, 1, 1, null, null],
-    'defaultBPM' : 160,
+    'defaultBPM' : 80,
   },
   'opanije': {
     'time': '8n',
