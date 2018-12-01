@@ -44,6 +44,11 @@ var rhythms = {
     'pattern': [1, 1, null, 2, null, 2, 2, null, 1, null, 1, null, 2, null, 2, null],
     'defaultBPM' : 170,
   },
+  'ijexa2': {
+    'time': '8n',
+    'pattern': [2, 2, null, 1, null, 1, 1, null, 2, null, 2, null, 1, null, 1, null],
+    'defaultBPM' : 170,
+  },
   'ilu': {
     'time': '8n',
     'pattern': [1, null, 1, 1, null, 1, 1, null],
