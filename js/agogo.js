@@ -37,7 +37,7 @@ var rhythms = {
   'bata': {
     'time': '8t',
     'pattern': [1, 1, null, null, null, null],
-    'defaultBPM': 140,
+    'defaultBPM': 90,
   },
   'cabula': {
     'time': '8n',
