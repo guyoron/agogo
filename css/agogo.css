@@ -50,6 +50,11 @@ h1 {
   }
 }
 
+@media (min-width: 768px) {
+  .mobile-notice {
+    display: none;
+  }
+}
 #control-rhythm label.btn {
   margin-bottom: 5px;
 }

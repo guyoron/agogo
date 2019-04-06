@@ -54,6 +54,12 @@ h1 {
   }
 }
 
+@media (min-width: $break-md) {
+  .mobile-notice {
+    display: none;
+  }
+}
+
 #control-rhythm {
 
   label.btn {
