@@ -34,6 +34,11 @@ var rhythms = {
     'pattern': [1, null, null, 1, null, null, 1, null, null, null, 1, null, 1, null, null, null],
     'defaultBPM' : 170,
   },
+  'bata': {
+    'time': '8t',
+    'pattern': [1, 1, null, null, null, null],
+    'defaultBPM: 140,
+  },
   'cabula': {
     'time': '8n',
     'pattern': [1, null, 1, 1, null, 1, null, 1, null, 1, null, 1, null, 1, 1, null],
