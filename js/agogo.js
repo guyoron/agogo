@@ -23,67 +23,67 @@ var boxes = $('#boxes')
 var rhythms = {
   'aguere1': {
     'time': '8n',
-    'pattern': [1, 1, null, null, 1, 1, 1, null],
+    'pattern': [1, 1, 0, 0, 1, 1, 1, 0],
     'defaultBPM' : 120,
   },
   'aguere2': {
     'time': '8n',
-    'pattern': [1, 1, null, null, 1, null, 1, null],
+    'pattern': [1, 1, 0, 0, 1, 0, 1, 0],
     'defaultBPM' : 120,
   },
   'avamunha': {
     'time': '8n',
-    'pattern': [1, null, null, 1, null, null, 1, null, null, null, 1, null, 1, null, null, null],
+    'pattern': [1, 0, 0, 1, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0, 0, 0],
     'defaultBPM' : 170,
   },
   'bata': {
     'time': '8t',
-    'pattern': [1, 1, null, null, null, null],
+    'pattern': [1, 1, 0, 0, 0, 0],
     'defaultBPM': 90,
   },
   'cabula': {
     'time': '8n',
-    'pattern': [1, null, 1, 1, null, 1, null, 1, null, 1, null, 1, null, 1, 1, null],
+    'pattern': [1, 0, 1, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 1, 0],
     'defaultBPM' : 140,
   },
   'ijexa': {
     'time': '8n',
-    'pattern': [1, 1, null, 2, null, 2, 2, null, 1, null, 1, null, 2, null, 2, null],
+    'pattern': [1, 1, 0, 2, 0, 2, 2, 0, 1, 0, 1, 0, 2, 0, 2, 0],
     'defaultBPM' : 170,
   },
   'ijexa2': {
     'time': '8n',
-    'pattern': [2, 2, null, 1, null, 1, 1, null, 2, null, 2, null, 1, null, 1, null],
+    'pattern': [2, 2, 0, 1, 0, 1, 1, 0, 2, 0, 2, 0, 1, 0, 1, 0],
     'defaultBPM' : 170,
   },
   'ilu': {
     'time': '8n',
-    'pattern': [1, null, 1, 1, null, 1, 1, null],
+    'pattern': [1, 0, 1, 1, 0, 1, 1, 0],
     'defaultBPM' : 160,
   },
   'jica': {
     'time': '8t',
-    'pattern': [1, null, 1, 1, null, null],
+    'pattern': [1, 0, 1, 1, 0, 0],
     'defaultBPM' : 80,
   },
   'opanije': {
     'time': '8n',
-    'pattern': [1, 1, 1, null, 1, 1, 1, null, 1, 1, null, 2, null, 2, 2, null],
+    'pattern': [1, 1, 1, 0, 1, 1, 1, 0, 1, 1, 0, 2, 0, 2, 2, 0],
     'defaultBPM' : 150,
   },
   'tonibobe': {
     'time': '8n',
-    'pattern': [1, null, 2, 2, 2, null, 2, null, 2, null, 2, null, 1, null, 1, null],
+    'pattern': [1, 0, 2, 2, 2, 0, 2, 0, 2, 0, 2, 0, 1, 0, 1, 0],
     'defaultBPM' : 210,
   },
   'vassi': {
     'time': '8t',
-    'pattern': [1, null, 1, null, 1, 1, null, 1, null, 1, null, 1],
+    'pattern': [1, 0, 1, 0, 1, 1, 0, 1, 0, 1, 0, 1],
     'defaultBPM' : 120,
   },
   'vassilong': {
     'time': '8t',
-    'pattern': [1, null, 1, null, 1, null, 1, 1, null, 1, null, 1],
+    'pattern': [1, 0, 1, 0, 1, 0, 1, 1, 0, 1, 0, 1],
     'defaultBPM' : 120,
   },
 };
