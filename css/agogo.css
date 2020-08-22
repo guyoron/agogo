@@ -100,6 +100,7 @@ h1 {
   height: 23px;
   margin: 5px 5px 0 0;
   border-radius: 5px;
+  transition: all .1s;
 }
 @media (min-width: 768px) {
   #graph #boxes .box {
@@ -116,6 +117,10 @@ h1 {
 }
 #graph #boxes .box.high {
   background: #00b300;
+}
+#graph #boxes .box.highlight {
+  width: 26px;
+  height: 26px;
 }
 
 a#control-play {

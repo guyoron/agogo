@@ -112,6 +112,7 @@ h1 {
       height: 23px;
       margin: 5px 5px 0 0;
       border-radius: 5px;
+      transition: all .1s;
 
       @media (min-width: $break-md) {
         width: 35px;
@@ -128,6 +129,11 @@ h1 {
       }
       &.high {
         background: lighten($c-primary, 10%);
+      }
+
+      &.highlight {
+        width: 26px;
+        height: 26px;
       }
     }
   }
