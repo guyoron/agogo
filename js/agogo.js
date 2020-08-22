@@ -183,6 +183,7 @@ function togglePlay(action, time) {
   Tone.Transport.toggle();
 
   highlightIndex = 0;
+  $('.box').removeClass('highlight')
 
   if (action == 'play') {
     disableControls();
@@ -201,10 +202,6 @@ function togglePlay(action, time) {
       'value': elapsedTime
     });
   }
-}
-
-function highlightNext() {
-
 }
 
 // Callback for sequence play events and triggers the agogo
