@@ -201,10 +201,19 @@ function togglePlay(action, time) {
 // Callback for sequence play events and triggers the agogo
 function playAgogo(time, bell) {
   if (bell == 1) {
-		agogo.playLow(time)
+	  agogo.playLow(time)
   }
   else if (bell == 2) {
     agogo.playHigh(time)
+  }
+  console.log(time)
+  console.log(rhythms[selectedRhythm].sequence.progress)
+//   highlightNext()
+}
+
+function hightlightNext() {
+  var boxes = $('.box')
+  if (boxes.find('.highlight').length) {
   }
 }
 
