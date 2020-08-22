@@ -181,6 +181,9 @@ $(window).resize(formatControls)
 // Toggle the main playing
 function togglePlay(action, time) {
   Tone.Transport.toggle();
+
+  highlightIndex = 0;
+
   if (action == 'play') {
     disableControls();
     controlPlay.attr('data-action', 'pause');
@@ -217,7 +220,7 @@ function playAgogo(time, bell) {
   var currentBox = highlightIndex % rhythmLength
   $('.box').removeClass('highlight')
   $('.box-' + currentBox).addClass('highlight')
-  highlightIndex = highlightIndex + 1       
+  highlightIndex = highlightIndex + 1
 }
 
 // Create or refresh the box graph
