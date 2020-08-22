@@ -217,6 +217,7 @@ function playAgogo(time, bell) {
   var currentBox = highlightIndex % rhythmLength
   $('.box').removeClass('highlight')
   $('.box-' + currentBox).addClass('highlight')
+  highlightIndex = highlightIndex + 1
 }
 
 // Create or refresh the box graph
