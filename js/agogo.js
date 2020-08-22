@@ -9,6 +9,8 @@ class Agogo {
 
 var selectedRhythm, agogo;
 
+var highlightIndex = 0;
+
 var controlPlay  = $('a#control-play');
 var controlTempo = $('#control-tempo');
 var controlRhythm = $('#control-rhythm');
@@ -208,13 +210,15 @@ function playAgogo(time, bell) {
   }
   console.log(time)
   console.log(rhythms[selectedRhythm].sequence.progress)
-//   highlightNext()
+  highlightNext()
 }
 
 function hightlightNext() {
   var boxes = $('.box')
-  if (boxes.find('.highlight').length) {
-  }
+  var rhythmLength = rhythms[selectedRhythm].pattern.length
+  var currentBox = highlightIndex % rhythmLength
+  boxes.removeClass('highlight')
+  boxes[currentBox].addClass('highlight')
 }
 
 // Create or refresh the box graph
