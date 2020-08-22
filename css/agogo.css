@@ -103,18 +103,15 @@ h1 {
   transition: all .1s;
 }
 #graph #boxes .box.highlight {
-  width: 26px;
-  height: 26px;
+  -webkit-transform: scale(1.2);
+  -ms-transform: scale(1.2);
+  transform: scale(1.2);
 }
 @media (min-width: 768px) {
   #graph #boxes .box {
     width: 35px;
     height: 35px;
     margin-right: 7px;
-  }
-  #graph #boxes .box.highlight {
-    width: 38px;
-    height: 38px;
   }
 }
 #graph #boxes .box:last-child {
