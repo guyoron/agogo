@@ -208,8 +208,6 @@ function playAgogo(time, bell) {
   else if (bell == 2) {
     agogo.playHigh(time)
   }
-  console.log(time)
-  console.log(rhythms[selectedRhythm].sequence.progress)
   highlightNext()
 }
 
