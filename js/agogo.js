@@ -213,11 +213,10 @@ function playAgogo(time, bell) {
     agogo.playHigh(time)
   }
 
-  var boxes = $('.box')
   var rhythmLength = rhythms[selectedRhythm].pattern.length
   var currentBox = highlightIndex % rhythmLength
-  boxes.removeClass('highlight')
-  boxes[currentBox].addClass('highlight')
+  $('.box').removeClass('highlight')
+  $('.box-' + currentBox).addClass('highlight')
 }
 
 // Create or refresh the box graph
