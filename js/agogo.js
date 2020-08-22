@@ -200,6 +200,14 @@ function togglePlay(action, time) {
   }
 }
 
+function hightlightNext() {
+  var boxes = $('.box')
+  var rhythmLength = rhythms[selectedRhythm].pattern.length
+  var currentBox = highlightIndex % rhythmLength
+  boxes.removeClass('highlight')
+  boxes[currentBox].addClass('highlight')
+}
+
 // Callback for sequence play events and triggers the agogo
 function playAgogo(time, bell) {
   if (bell == 1) {
@@ -209,14 +217,6 @@ function playAgogo(time, bell) {
     agogo.playHigh(time)
   }
   highlightNext()
-}
-
-function hightlightNext() {
-  var boxes = $('.box')
-  var rhythmLength = rhythms[selectedRhythm].pattern.length
-  var currentBox = highlightIndex % rhythmLength
-  boxes.removeClass('highlight')
-  boxes[currentBox].addClass('highlight')
 }
 
 // Create or refresh the box graph
