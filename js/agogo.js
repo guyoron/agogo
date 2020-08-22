@@ -200,7 +200,7 @@ function togglePlay(action, time) {
   }
 }
 
-function hightlightNext() {
+function highlightNext() {
   var boxes = $('.box')
   var rhythmLength = rhythms[selectedRhythm].pattern.length
   var currentBox = highlightIndex % rhythmLength
