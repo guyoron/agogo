@@ -61,7 +61,9 @@ h1 {
 }
 
 #control-rhythm {
-
+  max-width: 800px;
+  margin: 0 auto;
+  
   label.btn {
     margin-bottom: 5px;
   }

@@ -55,6 +55,10 @@ h1 {
     display: none;
   }
 }
+#control-rhythm {
+  max-width: 800px;
+  margin: 0 auto;
+}
 #control-rhythm label.btn {
   margin-bottom: 5px;
 }
