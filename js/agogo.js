@@ -159,7 +159,7 @@ StartAudioContext(Tone.context);
 
 // Bind to rhythm control
 controlRhythmInputs.change(function() {
-  selectRhythm($(this).attr('id'), true);
+  selectRhythm($(this).data('rhythm'), true);
 })
 
 // Bind to tempo control
