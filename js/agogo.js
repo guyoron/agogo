@@ -154,7 +154,6 @@ agogoSynth2 = new Agogo({
 // Initialization
 agogo = agogoNatural;
 selectRhythm('vassi', false);
-formatControls();
 StartAudioContext(Tone.context);
 
 // Bind to rhythm control
