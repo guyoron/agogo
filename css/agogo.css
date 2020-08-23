@@ -59,6 +59,12 @@ h1 {
   max-width: 800px;
   margin: 0 auto;
 }
+#control-rhythm .rhythm-row {
+  margin-bottom: 10px;
+}
+#control-rhythm .rhythm-row button {
+  margin-bottom: 5px;
+}
 #control-rhythm label.btn {
   margin-bottom: 5px;
 }
