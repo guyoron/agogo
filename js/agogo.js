@@ -244,6 +244,9 @@ function createGraph(id) {
 // Switch the currently selected rhythm
 function selectRhythm(id, track) {
 
+  // Deselect the other buttons
+  controlRhythmInputs.removeClass('active')
+
   // Stop all sequences on the transport
   for (var rhythm in rhythms) {
     if (rhythms.hasOwnProperty(rhythm)) {
