@@ -153,12 +153,12 @@ agogoSynth2 = new Agogo({
 
 // Initialization
 agogo = agogoNatural;
-selectRhythm(controlRhythmInputs.filter('.active').data('rhythm'), false);
+selectRhythm('vassi', false);
 formatControls();
 StartAudioContext(Tone.context);
 
 // Bind to rhythm control
-controlRhythmInputs.change(function() {
+controlRhythmInputs.click(function() {
   selectRhythm($(this).data('rhythm'), true);
 })
 
