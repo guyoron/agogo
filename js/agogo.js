@@ -303,12 +303,3 @@ function enableControls() {
   controlRhythm.find('.btn').removeClass('disabled');
   controlTempo.prop('disabled',false);
 }
-
-function formatControls() {
-  if ($(window).width() > 768) {
-    controlRhythm.find('.rhythm-row').addClass('btn-group')
-  }
-  else {
-    controlRhythm.find('.rhythm-row').removeClass('btn-group')
-  }
-}
