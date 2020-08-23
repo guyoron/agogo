@@ -153,7 +153,7 @@ agogoSynth2 = new Agogo({
 
 // Initialization
 agogo = agogoNatural;
-selectRhythm(controlRhythmInputs.filter(':checked').attr('id'), false);
+selectRhythm(controlRhythmInputs.filter('.active').data('rhythm'), false);
 formatControls();
 StartAudioContext(Tone.context);
 
