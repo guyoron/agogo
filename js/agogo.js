@@ -14,7 +14,7 @@ var highlightIndex = 0;
 var controlPlay  = $('a#control-play');
 var controlTempo = $('#control-tempo');
 var controlRhythm = $('#control-rhythm');
-var controlRhythmInputs = $('#control-rhythm input')
+var controlRhythmInputs = $('#control-rhythm button')
 
 var displayTempo = $('#display-tempo');
 
