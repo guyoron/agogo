@@ -44,7 +44,7 @@ var rhythms = {
   'cabula': {
     'time': '8n',
     'pattern': [1, 0, 1, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 1, 0],
-    'defaultBPM' : 140,
+    'defaultBPM' : 170,
   },
   'ijexa': {
     'time': '8n',
