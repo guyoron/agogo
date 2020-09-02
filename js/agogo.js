@@ -179,6 +179,11 @@ controlPlay.click(function(e) {
   togglePlay($(this).attr('data-action'), e.timeStamp);
 })
 
+// Settings
+$('#settingUseHigh').change(function() {
+  // settingUseHigh = $(this).is(':checked')
+})
+
 // Toggle the main playing
 function togglePlay(action, time) {
   Tone.Transport.toggle();
