@@ -25,9 +25,6 @@
     <div class="container">
 
       <h1 class="mx-center">Claves do Candomblé</h1>
-      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#settingsModal">
-        Settings
-      </button>
 
       <div class="mobile-notice alert alert-info alert-dismissible fade show" role="alert">
         If you're using a phone or tablet, you'll need to make sure it's not on silent mode to hear the bell sounds.
@@ -68,16 +65,18 @@
 
       <a href="#" id="control-play" data-action="play"><div class="icon"></div></a>
 
+      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#settingsModal">
+        Settings
+      </button>
+
       <!-- Modal -->
       <div class="modal fade" id="settingsModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
           <div class="modal-content">
-            <div class="modal-header">
+            <div class="modal-body">
               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
               </button>
-            </div>
-            <div class="modal-body">
               <div class="custom-control custom-switch">
                 <input type="checkbox" class="custom-control-input" id="settingUseHigh">
                 <label class="custom-control-label" for="settingUseHigh">Use the high-pitch bell</label>
