@@ -36,12 +36,11 @@
       <div id="control-rhythm" class="justify-content-center">
         <div class="rhythms-ketu rhythm-row mx-center mr-2">
           <button class="btn btn-secondary active" data-rhythm="vassi">Vassi (6/8 bell)</button>
-          <button class="btn btn-secondary" data-rhythm="vassilong">Vassi Long</button>
+          <button class="btn btn-secondary" data-rhythm="vassilong">Vassi Long (Long bell)</button>
           <button class="btn btn-secondary" data-rhythm="aguere1">Aguerê</button>
           <button class="btn btn-secondary" data-rhythm="aguere2">Aguerê Ossain</button>
           <button class="btn btn-secondary" data-rhythm="ilu">Ilu</button>
           <button class="btn btn-secondary" data-rhythm="opanije">Opanije</button>
-          <button class="btn btn-secondary" data-rhythm="opanije2">Opanije One Bell</button>
           <button class="btn btn-secondary" data-rhythm="tonibobe">Tonibobe</button>
           <button class="btn btn-secondary" data-rhythm="avamunha">Avamunha, Congo</button>
           <button class="btn btn-secondary" data-rhythm="bata">Batá</button>
@@ -65,6 +64,25 @@
       </div>
 
       <a href="#" id="control-play" data-action="play"><div class="icon"></div></a>
+
+      <!-- Button trigger modal -->
+      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#settingsModal">
+        Settings
+      </button>
+
+      <!-- Modal -->
+      <div class="modal fade modal-dialog-centered" id="settingsModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-body">
+              <div class="custom-control custom-switch">
+                <input type="checkbox" class="custom-control-input" id="customSwitch1">
+                <label class="custom-control-label" for="customSwitch1">Toggle this switch element</label>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
 
 
