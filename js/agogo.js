@@ -179,9 +179,6 @@ controlPlay.click(function(e) {
   togglePlay($(this).attr('data-action'), e.timeStamp);
 })
 
-// Bind to window resize
-$(window).resize(formatControls)
-
 // Toggle the main playing
 function togglePlay(action, time) {
   Tone.Transport.toggle();
