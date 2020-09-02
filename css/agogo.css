@@ -39,16 +39,19 @@ body {
   }
 }
 
-h1 {
-  display: inline-block;
-  margin-right: auto;
-  margin-left: auto;
+#title-bar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 @media (max-width: 500px) {
-  h1 {
+  #title-bar h1 {
     font-size: 1.5rem;
     max-width: 200px;
   }
+}
+#title-bar #settings-button {
+  margin-top: 15px;
 }
 
 @media (min-width: 768px) {
@@ -187,8 +190,4 @@ a#control-play[data-action="pause"] .icon::before {
 }
 a#control-play:hover {
   background-color: darkgreen;
-}
-
-#settings-button {
-  margin-top: 15px;
 }

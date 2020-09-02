@@ -44,14 +44,20 @@ body {
   }
 }
 
-h1 {
-  display: inline-block;
-  margin-right: auto;
-  margin-left: auto;
+#title-bar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
-  @media (max-width: $break-sm) {
-    font-size: 1.5rem;
-    max-width: 200px;
+  h1 {
+    @media (max-width: $break-sm) {
+      font-size: 1.5rem;
+      max-width: 200px;
+    }
+  }
+
+  #settings-button {
+    margin-top: 15px;
   }
 }
 
@@ -212,8 +218,4 @@ a#control-play {
   &:hover {
     background-color: darkgreen;
   }
-}
-
-#settings-button {
-  margin-top: 15px;
 }
