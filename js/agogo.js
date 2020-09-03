@@ -98,7 +98,7 @@ var rhythms = {
   'savalu': {
     'time': '8t',
     'pattern': [1, 0, 1, 0, 1, 1],
-    'defaultBPM' : 120,
+    'defaultBPM' : 80,
   },
 };
 
