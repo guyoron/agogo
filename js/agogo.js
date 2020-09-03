@@ -100,6 +100,11 @@ var rhythms = {
     'pattern': [1, 0, 1, 0, 1, 1],
     'defaultBPM' : 80,
   },
+  'savalu': {
+    'time': '8t',
+    'pattern': [1, 0, 0, 0, 1, 0, 1, 0, 0, 0, 1, 0, 1, 0, 0, 0, 1, 0, 1, 1, 0, 1, 1, 0],
+    'defaultBPM' : 100,
+  },
 };
 
 // Create Tone sequences for each rhythm based on its pattern
