@@ -95,6 +95,11 @@ var rhythms = {
     'pattern': [1, 0, 1, 0, 1, 0, 1, 1, 0, 1, 0, 1],
     'defaultBPM' : 120,
   },
+  'savalu': {
+    'time': '8t',
+    'pattern': [1, 0, 1, 0, 1, 1],
+    'defaultBPM' : 120,
+  },
 };
 
 // Create Tone sequences for each rhythm based on its pattern
