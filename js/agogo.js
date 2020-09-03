@@ -7,6 +7,10 @@ class Agogo {
   }
 }
 
+var settings = {
+  useHigh: true,
+}
+
 var selectedRhythm, agogo;
 
 var highlightIndex = 0;
@@ -97,6 +101,9 @@ var rhythms = {
 for (var rhythm in rhythms) {
   if (rhythms.hasOwnProperty(rhythm)) {
     rhythms[rhythm].sequence = new Tone.Sequence(playAgogo, rhythms[rhythm].pattern, rhythms[rhythm].time);
+    // Also create a version of the pattern with no high bell and a sequence for that
+    rhythms[rhythm].patternOneBell = rhythms[rhythm].pattern.map(x => x == 2 ? 1 : x)
+    rhythms[rhythm].sequenceOneBell = new Tone.Sequence(playAgogo, rhythms[rhythm].patternOneBell, rhythms[rhythm].time);
   }
 }
 
@@ -181,7 +188,9 @@ controlPlay.click(function(e) {
 
 // Settings
 $('#settingUseHigh').change(function() {
-  // settingUseHigh = $(this).is(':checked')
+  settings.useHigh = $(this).is(':checked')
+  selectRhythm(selectedRhythm)
+  createGraph(selectedRhythm)
 })
 
 // Toggle the main playing
@@ -228,19 +237,20 @@ function playAgogo(time, bell) {
 
 // Create or refresh the box graph
 function createGraph(id) {
-  var r = rhythms[id]
-  var num = r.pattern.length
-  var dNum = $('#num .num-inner')
-  var box = $('<div class="box"></div>')
+  const r = rhythms[id]
+  const pattern = setting.useHigh ? r.pattern : r.patternOneBell
+  const num = pattern.length
+  const dNum = $('#num .num-inner')
+  const box = $('<div class="box"></div>')
 
   boxes.find('.box').remove()
   dNum.text(num)
   for (var i=0; i<num; i++){
     boxClass = '';
-    if (r.pattern[i] == 1) {
+    if (pattern[i] == 1) {
       boxClass = 'low';
     }
-    else if (r.pattern[i] == 2){
+    else if (pattern[i] == 2){
       boxClass = 'high';
     }
     boxes.append(box.clone().addClass(boxClass).addClass('box-'+i));
@@ -257,11 +267,17 @@ function selectRhythm(id, track) {
   for (var rhythm in rhythms) {
     if (rhythms.hasOwnProperty(rhythm)) {
       rhythms[rhythm].sequence.stop("+0");
+      rhythms[rhythm].sequenceOneBell.stop("+0");
     }
   }
 
   // Queue the sequence for the selected rhythm
-  rhythms[id].sequence.start(0);
+  if (settings.useHigh) {
+    rhythms[id].sequence.start(0);
+  }
+  else {
+    rhythms[id].sequenceOneBell.start(0);
+  }
 
   setBPM(rhythms[id].defaultBPM);
 
