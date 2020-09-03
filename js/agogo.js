@@ -191,6 +191,18 @@ $('#settingUseHigh').change(function() {
   settings.useHigh = $(this).is(':checked')
   selectRhythm(selectedRhythm)
   createGraph(selectedRhythm)
+  gtag('event', 'settingChange', {
+    'event_category': 'useHigh',
+    'event_label': settings.useHigh,
+  });
+})
+
+$('#settingShowAnimation').change(function() {
+  settings.showAnimation = $(this).is(':checked')
+  gtag('event', 'settingChange', {
+    'event_category': 'showAnimation',
+    'event_label': settings.showAnimation,
+  });
 })
 
 // Toggle the main playing
@@ -228,11 +240,13 @@ function playAgogo(time, bell) {
     agogo.playHigh(time)
   }
 
-  var rhythmLength = rhythms[selectedRhythm].pattern.length
-  var currentBox = highlightIndex % rhythmLength
-  $('.box').removeClass('highlight')
-  $('.box-' + currentBox).addClass('highlight')
-  highlightIndex = highlightIndex + 1
+  if (settings.showAnimation) {
+    var rhythmLength = rhythms[selectedRhythm].pattern.length
+    var currentBox = highlightIndex % rhythmLength
+    $('.box').removeClass('highlight')
+    $('.box-' + currentBox).addClass('highlight')
+    highlightIndex = highlightIndex + 1
+  }
 }
 
 // Create or refresh the box graph
