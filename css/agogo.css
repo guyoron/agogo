@@ -114,7 +114,7 @@ body {
   width: 23px;
   height: 23px;
   margin: 5px 5px 0 0;
-  border-radius: 5px;
+  border-radius: 20px;
   transition: transform .2s ease-out;
   will-change: transform;
 }
