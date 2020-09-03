@@ -74,12 +74,7 @@ var rhythms = {
   'opanije': {
     'time': '8n',
     'pattern': [1, 1, 1, 0, 1, 1, 1, 0, 1, 1, 0, 2, 0, 2, 2, 0],
-    'defaultBPM' : 150,
-  },
-  'opanije2': {
-    'time': '8n',
-    'pattern': [1, 1, 1, 0, 1, 1, 1, 0, 1, 1, 0, 1, 0, 1, 1, 0],
-    'defaultBPM' : 150,
+    'defaultBPM' : 130,
   },
   'tonibobe': {
     'time': '8n',
@@ -89,12 +84,12 @@ var rhythms = {
   'vassi': {
     'time': '8t',
     'pattern': [1, 0, 1, 0, 1, 1, 0, 1, 0, 1, 0, 1],
-    'defaultBPM' : 120,
+    'defaultBPM' : 100,
   },
   'vassilong': {
     'time': '8t',
     'pattern': [1, 0, 1, 0, 1, 0, 1, 1, 0, 1, 0, 1],
-    'defaultBPM' : 120,
+    'defaultBPM' : 100,
   },
   'savalu': {
     'time': '8t',
