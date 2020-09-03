@@ -238,7 +238,7 @@ function playAgogo(time, bell) {
 // Create or refresh the box graph
 function createGraph(id) {
   const r = rhythms[id]
-  const pattern = setting.useHigh ? r.pattern : r.patternOneBell
+  const pattern = settings.useHigh ? r.pattern : r.patternOneBell
   const num = pattern.length
   const dNum = $('#num .num-inner')
   const box = $('<div class="box"></div>')
