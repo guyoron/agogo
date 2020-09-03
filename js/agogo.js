@@ -9,6 +9,7 @@ class Agogo {
 
 var settings = {
   useHigh: true,
+  showAnimation: true,
 }
 
 var selectedRhythm, agogo;
