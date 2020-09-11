@@ -198,3 +198,8 @@ a#control-play[data-action="pause"] .icon::before {
 a#control-play:hover {
   background-color: darkgreen;
 }
+
+a.contact {
+  margin: 40px 0 20px 0;
+  letter-spacing: 1px;
+}
