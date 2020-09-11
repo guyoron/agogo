@@ -53,6 +53,13 @@ body {
 #title-bar #settings-button {
   margin-left: 10px;
 }
+@media (max-width: 500px) {
+  #title-bar #settings-button {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+  }
+}
 
 @media (min-width: 768px) {
   .mobile-notice {
