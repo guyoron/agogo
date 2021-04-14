@@ -41,6 +41,11 @@ var rhythms = {
     'pattern': [1, 0, 0, 1, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0, 0, 0],
     'defaultBPM' : 170,
   },
+	'congo': {
+    'time': '8n',
+    'pattern': [1, 0, 0, 1, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0, 0, 0],
+    'defaultBPM' : 230,
+  },
   'bata': {
     'time': '8t',
     'pattern': [1, 1, 0, 0, 0, 0],
