@@ -125,8 +125,8 @@ for (var rhythm in rhythms) {
 
 // Set up agogos
 agogoNatural = new Agogo({
-  'low' : new Tone.Player('./sounds/low.wav').toMaster(),
-  'high' : new Tone.Player('./sounds/high.wav').toMaster(),
+  'low' : new Tone.Player('./sounds/gbl.mp3').toMaster(),
+  'high' : new Tone.Player('./sounds/gbh.mp3').toMaster(),
   'playLow' : function(time) {
     this.low.restart(time)
   },
