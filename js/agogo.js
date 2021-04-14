@@ -104,7 +104,7 @@ var rhythms = {
   'sato': {
     'time': '8t',
     'pattern': [1, 0, 1, 1, 1, 0],
-    'defaultBPM': 100,
+    'defaultBPM': 90,
   },
 };
 
