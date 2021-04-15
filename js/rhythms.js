@@ -85,5 +85,3 @@ const rhythms = {
     'defaultBPM': 90,
   },
 };
-
-export { rhythms }
