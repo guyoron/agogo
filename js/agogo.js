@@ -1,5 +1,3 @@
-import { rhythms } from './rhythms.js'
-
 const synthOpts1 = {"frequency":200,"harmonicity":12,"resonance":200,"modulationIndex":10,"envelope":{"decay":0.3,},"volume":-15};
 const synthOpts1 = {"frequency":200,"harmonicity":12,"resonance":800,"modulationIndex":20,"envelope":{"decay":0.4,},"volume":-15};
 
