@@ -104,6 +104,16 @@
               </button>
             </div>
             <div class="modal-body">
+              <div class="form-inline form-group">
+                <select class="form-control" id="settingBell">
+                  <option value="new">New</option>
+                  <option value="newMuted">New muted</option>
+                  <option value="old">Old</option>
+                  <option value="synth1">Synth 1</option>
+                  <option value="synth2">Synth 2</option>
+                </select>
+                <label for="settingBell">Bell sound</label>
+              </div>
               <div class="custom-control custom-switch">
                 <input type="checkbox" class="custom-control-input" id="settingUseHigh" checked>
                 <label class="custom-control-label" for="settingUseHigh">Use the high-pitch bell</label>
@@ -124,6 +134,6 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <script src="./js/Tone.min.js?v=1"></script>
     <script src="./js/StartAudioContext.js?v=1"></script>
-    <script src="./js/agogo.js?v=6"></script>
+    <script src="./js/agogo.js?v=7"></script>
   </body>
 </html>

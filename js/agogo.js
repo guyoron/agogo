@@ -1,13 +1,62 @@
+import { rhythms } from './rhythms.js'
+
+const synthOpts1 = {"frequency":200,"harmonicity":12,"resonance":200,"modulationIndex":10,"envelope":{"decay":0.3,},"volume":-15};
+const synthOpts1 = {"frequency":200,"harmonicity":12,"resonance":800,"modulationIndex":20,"envelope":{"decay":0.4,},"volume":-15};
+
 class Agogo {
+  sounds = {
+    'new': {
+      'type': 'audio',
+      'low': new Tone.Player('./sounds/gbl.mp3').toMaster(),
+      'high': new Tone.Player('./sounds/gbh.mp3').toMaster(),
+    },
+    'newMuted': {
+      'type': 'audio',
+      'low': new Tone.Player('./sounds/gblmute.mp3').toMaster(),
+      'high': new Tone.Player('./sounds/gbh_mute.mp3').toMaster(),
+    },
+    'old': {
+      'type': 'audio',
+      'low': new Tone.Player('./sounds/low.wav').toMaster(),
+      'high': new Tone.Player('./sounds/high.wav').toMaster(),
+    },
+    'synth1': {
+      'type': 'synth',
+      'low': new Tone.MetalSynth(synthOpts1).toMaster(),
+      'high': new Tone.MetalSynth(synthOpts1).toMaster(),
+    },
+    'synth2': {
+      'type': 'synth',
+      'low': new Tone.MetalSynth(synthOpts2).toMaster(),
+      'high': new Tone.MetalSynth(synthOpts2).toMaster(),
+    },
+  }
+
   constructor(settings) {
-    this.low = settings.low
-    this.high = settings.high
-    this.playLow = settings.playLow
-    this.playHigh = settings.playHigh
+    this.sound = this.sounds[settings.defaultSound]
+  }
+
+  switchSound(newSound) {
+    this.sound = this.sounds[newSound]
+  }
+  playLow(time) {
+    if (this.sound.type == 'audio') this.playAudio(this.sound.low, time)
+    else if (this.sound.type == 'synth') this.playSynth(this.sound.low, time)
+  }
+  playHigh(time) {
+    if (this.sound.type == 'audio') this.playAudio(this.sound.high, time)
+    else if (this.sound.type == 'synth') this.playSynth(this.sound.high, time)
+  }
+  playAudio(tone, time) {
+    tone.restart(time)
+  }
+  playSynth(tone, time) {
+    tone.triggerAttack(time)
   }
 }
 
 var settings = {
+  bell: 'new',
   useHigh: true,
   showAnimation: true,
 }
@@ -25,94 +74,6 @@ var displayTempo = $('#display-tempo');
 
 var boxes = $('#boxes')
 
-var rhythms = {
-  'aguere1': {
-    'time': '8n',
-    'pattern': [1, 1, 0, 0, 1, 1, 1, 0],
-    'defaultBPM' : 120,
-  },
-  'aguere2': {
-    'time': '8n',
-    'pattern': [1, 1, 0, 0, 1, 0, 1, 0],
-    'defaultBPM' : 120,
-  },
-  'avamunha': {
-    'time': '8n',
-    'pattern': [1, 0, 0, 1, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0, 0, 0],
-    'defaultBPM' : 170,
-  },
-	'congo': {
-    'time': '8n',
-    'pattern': [1, 0, 0, 1, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0, 0, 0],
-    'defaultBPM' : 230,
-  },
-  'bata': {
-    'time': '8t',
-    'pattern': [1, 1, 0, 0, 0, 0],
-    'defaultBPM': 90,
-  },
-  'cabula': {
-    'time': '8n',
-    'pattern': [1, 0, 1, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 1, 0],
-    'defaultBPM' : 170,
-  },
-  'ijexa': {
-    'time': '8n',
-    'pattern': [1, 1, 0, 2, 0, 2, 2, 0, 1, 0, 1, 0, 2, 0, 2, 0],
-    'defaultBPM' : 170,
-  },
-  'ijexa2': {
-    'time': '8n',
-    'pattern': [2, 2, 0, 1, 0, 1, 1, 0, 2, 0, 2, 0, 1, 0, 1, 0],
-    'defaultBPM' : 170,
-  },
-  'ilu': {
-    'time': '8n',
-    'pattern': [1, 0, 1, 1, 0, 1, 1, 0],
-    'defaultBPM' : 160,
-  },
-  'jica': {
-    'time': '8t',
-    'pattern': [1, 0, 1, 1, 0, 0],
-    'defaultBPM' : 80,
-  },
-  'opanije': {
-    'time': '8n',
-    'pattern': [1, 1, 1, 0, 1, 1, 1, 0, 1, 1, 0, 2, 0, 2, 2, 0],
-    'defaultBPM' : 130,
-  },
-  'tonibobe': {
-    'time': '8n',
-    'pattern': [1, 0, 2, 2, 2, 0, 2, 0, 2, 0, 2, 0, 1, 0, 1, 0],
-    'defaultBPM' : 210,
-  },
-  'vassi': {
-    'time': '8t',
-    'pattern': [1, 0, 1, 0, 1, 1, 0, 1, 0, 1, 0, 1],
-    'defaultBPM' : 100,
-  },
-  'vassilong': {
-    'time': '8t',
-    'pattern': [1, 0, 1, 0, 1, 0, 1, 1, 0, 1, 0, 1],
-    'defaultBPM' : 100,
-  },
-  'savalu': {
-    'time': '8t',
-    'pattern': [1, 0, 1, 0, 1, 1],
-    'defaultBPM' : 80,
-  },
-  'bravum': {
-    'time': '8t',
-    'pattern': [1, 0, 0, 0, 1, 0, 1, 0, 0, 0, 1, 0, 1, 0, 0, 0, 1, 0, 1, 1, 0, 1, 1, 0],
-    'defaultBPM' : 100,
-  },
-  'sato': {
-    'time': '8t',
-    'pattern': [1, 0, 1, 1, 1, 0],
-    'defaultBPM': 90,
-  },
-};
-
 // Create Tone sequences for each rhythm based on its pattern
 for (var rhythm in rhythms) {
   if (rhythms.hasOwnProperty(rhythm)) {
@@ -123,64 +84,8 @@ for (var rhythm in rhythms) {
   }
 }
 
-// Set up agogos
-agogoNatural = new Agogo({
-  'low' : new Tone.Player('./sounds/gbl.mp3').toMaster(),
-  'high' : new Tone.Player('./sounds/gbh.mp3').toMaster(),
-  'playLow' : function(time) {
-    this.low.restart(time)
-  },
-  'playHigh' : function(time) {
-    this.high.restart(time)
-  },
-});
-
-var synthOpts1 = {
-  "frequency" : 200,
-	"harmonicity" : 12,
-	"resonance" : 200,
-	"modulationIndex" : 10,
-	"envelope" : {
-		"decay" : 0.3,
-	},
-	"volume" : -15
-};
-
-agogoSynth1 = new Agogo({
-  'low' : new Tone.MetalSynth(synthOpts1).toMaster(),
-  'high' : new Tone.MetalSynth(synthOpts1).toMaster(),
-  'playLow' : function(time) {
-    this.low.triggerAttack(time)
-  },
-  'playHigh' : function(time) {
-    this.high.triggerAttack(time)
-  },
-})
-
-var synthOpts2 = {
-  "frequency" : 200,
-	"harmonicity" : 12,
-	"resonance" : 800,
-	"modulationIndex" : 20,
-	"envelope" : {
-		"decay" : 0.4,
-	},
-	"volume" : -15
-};
-
-agogoSynth2 = new Agogo({
-  'low' : new Tone.MetalSynth(synthOpts2).toMaster(),
-  'high' : new Tone.MetalSynth(synthOpts2).toMaster(),
-  'playLow' : function(time) {
-    this.low.triggerAttack(time)
-  },
-  'playHigh' : function(time) {
-    this.high.triggerAttack(time)
-  },
-})
-
 // Initialization
-agogo = agogoNatural;
+agogo = new Agogo({defaultSound: 'new'});
 selectRhythm('vassi', false);
 StartAudioContext(Tone.context);
 
@@ -218,6 +123,15 @@ $('#settingShowAnimation').change(function() {
   gtag('event', 'settingChange', {
     'event_category': 'showAnimation',
     'event_label': settings.showAnimation,
+  });
+})
+
+$('#settingBell').change(function() {
+  settings.bell = $(this).val()
+  agogo.switchSound(settings.bell)
+  gtag('event', 'settingChange', {
+    'event_category': 'bell',
+    'event_label': settings.bell,
   });
 })
 
