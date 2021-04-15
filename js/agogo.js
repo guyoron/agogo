@@ -18,6 +18,11 @@ class Agogo {
       'low': new Tone.Player('./sounds/low.wav').toMaster(),
       'high': new Tone.Player('./sounds/high.wav').toMaster(),
     },
+    'clave': {
+      'type': 'audio',
+      'low': new Tone.Player('./sounds/clave.mp3').toMaster(),
+      'high': new Tone.Player('./sounds/clave.mp3').toMaster(),
+    },
     'synth1': {
       'type': 'synth',
       'low': new Tone.MetalSynth(synthOpts1).toMaster(),
