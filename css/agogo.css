@@ -203,3 +203,10 @@ a.contact {
   margin: 40px 0 20px 0;
   letter-spacing: 1px;
 }
+
+#settingsModal .form-group.form-inline {
+  justify-content: center;
+}
+#settingsModal .form-group.form-inline label {
+  margin-left: 1em;
+}
