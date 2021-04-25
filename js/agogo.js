@@ -88,7 +88,7 @@ for (var rhythm in rhythms) {
 }
 
 // Initialization
-agogo = new Agogo({defaultSound: 'new'});
+agogo = new Agogo({defaultSound: 'newMuted'});
 selectRhythm('vassi', false);
 StartAudioContext(Tone.context);
 
